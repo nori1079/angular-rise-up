@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { ActionService } from 'src/app/service/action.service';
+import { AuthService } from 'src/app/servise/auth.service';
 
 @Component({
   selector: 'app-create',
@@ -8,7 +10,7 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-  actionIds = [...Array(10)].map((_, i) => i + 1);
+  fitnessIds = [...Array(10)].map((_, i) => i + 1);
   config: SwiperConfigInterface = {
     loop: true,
     navigation: true,
@@ -35,13 +37,22 @@ export class CreateComponent implements OnInit {
   }
   constructor(
     private fb: FormBuilder,
+    private actionService: ActionService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
   }
 
   submit() {
-    console.log(this.form.value);
-    console.log(this.selectedFitnessId);
+    const formDate = this.form.value;
+    this.actionService.createVom({
+      name: formDate.name,
+      gender: formDate.gender,
+      fitnessId: this.selectedFitnessId,
+      level: 1,
+      exp: 0,
+      trainerId: this.authService.uid
+    });
   }
 }

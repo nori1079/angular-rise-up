@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
     name: 'テスト祈り',
     exp: 200,
     level: 4,
-    avatarURL: '/assets/images/action-1.png'
+    fitnessId: '/assets/images/fitness-1.png'
   };
 
   constructor() { }

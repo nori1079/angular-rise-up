@@ -13,6 +13,6 @@ export class AppComponent {
   ) { }
 
   logout() {
-    this.authService.logaut();
+    this.authService.logout();
   }
 }

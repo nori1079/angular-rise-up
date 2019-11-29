@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
-
+import { GestGuard } from './guards/gest.guard';
 
 const routes: Routes = [
   {
@@ -15,6 +15,8 @@ const routes: Routes = [
   {
     path: 'welcome',
     loadChildren: () => import('./welcome/welcome.module').then(mod => mod.WelcomeModule),
+    canLoad: [GestGuard],
+    canActivate: [GestGuard]
   },
   {
     path: 'create',

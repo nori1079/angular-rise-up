@@ -2,8 +2,8 @@
 
 <div class="swiper">
   <swiper [config]="config" [(index)]="selectedFitnessId">
-    <div *ngFor="let actionId of actionIds">
-      <img src="/assets/images/action-{{actionId}}.png" alt="">
+    <div *ngFor="let fitnessId of fitnessIds">
+      <img src="/assets/images/fitness-{{fitnessId}}.png" alt="">
     </div>
   </swiper>
   <div class="pager"></div>
