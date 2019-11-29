@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/servise/auth.service';
 
 @Component({
   selector: 'app-welcome',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
-
-  constructor() { }
-
+  constructor(
+    private authService: AuthService
+  ) { }
   ngOnInit() {
   }
 
+  login() {
+    this.authService.login();
+  }
 }
