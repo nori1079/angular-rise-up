@@ -1,3 +1,3 @@
 <div class="container">
-  <app-action [action]="action"></app-action>
+  <app-action *ngIf="action$ | async as action" [action]="action"></app-action>
 </div>

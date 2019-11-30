@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Action } from 'src/app/interfaces/action';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/servise/auth.service';
+import { ActionService } from 'src/app/service/action.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,14 +11,14 @@ import { Action } from 'src/app/interfaces/action';
 })
 export class HomeComponent implements OnInit {
 
-  action: Action = {
-    name: 'テスト祈り',
-    exp: 200,
-    level: 4,
-    fitnessId: '/assets/images/fitness-1.png'
-  };
+  action$: Observable<Action> = this.actionService.getAction(
+    this.authService.uid
+  );
 
-  constructor() { }
+  constructor(
+    private actionService: ActionService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
   }

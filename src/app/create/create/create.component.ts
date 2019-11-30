@@ -46,7 +46,7 @@ export class CreateComponent implements OnInit {
 
   submit() {
     const formDate = this.form.value;
-    this.actionService.createVom({
+    this.actionService.createAction({
       name: formDate.name,
       gender: formDate.gender,
       fitnessId: this.selectedFitnessId,
