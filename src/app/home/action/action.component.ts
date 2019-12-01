@@ -8,6 +8,7 @@ import { Action } from 'src/app/interfaces/action';
 export class ActionComponent implements OnInit {
 
   @Input() action: Action;
+
   maxExp = 400;
 
   constructor() { }

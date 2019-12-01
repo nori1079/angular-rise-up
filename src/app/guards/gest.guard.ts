@@ -25,12 +25,18 @@ export class GestGuard implements CanActivate, CanLoad {
       })
     );
   }
+
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
     return this.authService.afUser$.pipe(
       map(user => !user),
-      take(1)
+      take(1),
+      tap(isGuest => {
+        if (!isGuest) {
+          this.router.navigateByUrl('/');
+        }
+      })
     );
   }
 }
