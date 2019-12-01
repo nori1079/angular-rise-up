@@ -30,7 +30,7 @@ export class ActionService {
 
   getAction(trainerId: string): Observable<Action> {
     return this.db
-      .collection<Action>('action', ref => ref.where('trainerId', '==', trainerId))
+      .collection<Action>('actions', ref => ref.where('trainerId', '==', trainerId))
       .valueChanges()
       .pipe(
         map(actions => {
