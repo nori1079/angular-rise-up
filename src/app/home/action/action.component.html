@@ -4,7 +4,7 @@
   </figure>
   <div class="action__body">
     <p class="action__name">{{action.name}} <small>Lv {{action.level}}</small></p>
-    <mat-progress-bar class="action__exp-bar" mode="determinate" [value]="getExpPercentage()"></mat-progress-bar>
-    <p class="action__exp">経験値 {{action | exp}}</p>
+    <mat-progress-bar class="action__exp-bar" mode="determinate" [value]="action | exp:'percent'"></mat-progress-bar>
+    <p class="action__exp">経験値 {{action | exp:'label'}}</p>
   </div>
 </div>

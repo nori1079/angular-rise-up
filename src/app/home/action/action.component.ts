@@ -9,15 +9,10 @@ export class ActionComponent implements OnInit {
 
   @Input() action: Action;
 
-  maxExp = 400;
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  getExpPercentage(): number {
-    return this.action.exp / this.maxExp * 100;
   }
 
 }
