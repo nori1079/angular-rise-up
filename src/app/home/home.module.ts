@@ -6,10 +6,11 @@ import { HomeComponent } from './home/home.component';
 import { ActionComponent } from './action/action.component';
 
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ExpPipe } from '../exp.pipe';
 
 
 @NgModule({
-  declarations: [HomeComponent, ActionComponent],
+  declarations: [HomeComponent, ActionComponent, ExpPipe],
   imports: [
     CommonModule,
     HomeRoutingModule,
